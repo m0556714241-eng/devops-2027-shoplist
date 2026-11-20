@@ -1,8 +1,15 @@
-# frontend-service.yml - your turn (step 9d). Blank page
-# Hint: copy stats-service.yml here. Three differences:
-#
-#   [ ] type: NodePort        (the door from your computer)
-#   [ ] port and targetPort: 80
-#   [ ] nodePort: 30080       (same indentation as port)
-#
-# Before apply: kubectl apply --dry-run=server -f kubernetes/frontend-service.yml
+# frontend-service.yml - your turn (step 9d)
+# Skeleton copied from stats-service.yml, plus type and nodePort
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend                   # name of this Service
+  namespace: shoplist
+spec:
+  type: NodePort                   # the type that opens a door from your computer
+  selector:
+    app: frontend                  # must match the label in frontend-deployment.yml
+  ports:                       # PORTS - stop here and ask
+    - port: 80
+      targetPort: 80
+      nodePort: 30080

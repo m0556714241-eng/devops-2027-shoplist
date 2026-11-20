@@ -25,7 +25,7 @@ spec:
             - containerPort: 5432   # postgres port
           readinessProbe:
             exec:
-              command: ["pg_isready", "-U", "shopuser ", "-d", "shoplist"]   # user and database from the Secret, plain text
+              command: ["pg_isready", "-U", "shopuser", "-d", "shoplist"]   # user and database from the Secret, plain text
             initialDelaySeconds: 5
             periodSeconds: 10
           volumeMounts:
